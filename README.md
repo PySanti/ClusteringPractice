@@ -1,16 +1,39 @@
-# Clustering Practice : Customer segmentation
+# Clustering Practice : Heart Disease
 
-En este proyecto tomare un dataset diseniago para realizar practicas de clustering. Las fases seran las siguientes:
+En este proyecto tomare un dataset diseniago para realizar practicas de clustering. 
+
+El objetivo sera tratar de lograr la generacion de clusters lo mas precisos posibles teniendo las etiquetas.
+
+Las fases seran las siguientes:
 
 1- **Preprocesamiento**
 
-&nbsp;1.1- Analisis inicial del conjunto\
-&nbsp;1.2- Cargar datos\
-&nbsp;1.3- Manejo de Nans e infinitos\
-&nbsp;1.4- Manejo de variables categoricas\
-&nbsp;1.5- Manejo de desequilibrio de datos\
-&nbsp;1.6- Manejo de correlaciones\
-&nbsp;1.7- PCA o Random forest para seleccion de caracteristicas.\
+&nbsp;1.1- Analisis inicial del conjunto
+
+&nbsp;1.2- Cargar datos
+
+&nbsp;1.3- Manejo de Nans e infinitos: no hay nans ni infinitos
+
+&nbsp;1.4- Manejo de desequilibrio de datos: mucho desequilibrio de datos en muchas variables. Sin embargo, se probara continuar con el proceso sin aplicar tecnicas como SMOTE.
+
+
+&nbsp;1.5- Manejo de variables categoricas: se aplico OneHotEncoding exitosamente.
+
+&nbsp;1.6- Manejo de correlaciones: el estudio de correlaciones resulto que las siguientes caracteristicas tienen menos de 0.2 y mas de -0.2 porcentaje de correlacion con el target:
+
+['GenHealth', 'KidneyDisease', 'AgeCategory', 'Smoking', 'PhysicalActivity', 'SkinCancer', 'Sex', 'BMI', 'Asthma', 'Race', 'AlcoholDrinking', 'MentalHealth', 'Diabetic', 'SleepTime']
+
+Se utilizara random forest como metodo de seleccion de caracteristicas para confirmar lo anterior.
+
+Despues de implementar Random Forest para seleccion de caracteristicas, resulto que las caracteristicas con mas de 1% de relevancia son las siguientes:
+
+['BMI', 'SleepTime', 'PhysicalHealth', 'MentalHealth', 'AgeCategory_80 or older', 'DiffWalking_Yes', 'Stroke_No', 'Stroke_Yes', 'PhysicalActivity_Yes', 'PhysicalActivity_No', 'AgeCategory_70-74', 'DiffWalking_No', 'GenHealth_Poor', 'Race_White', 'GenHealth_Fair', 'AgeCategory_75-79', 'Diabetic_Yes', 'Diabetic_No', 'Asthma_Yes', 'Asthma_No', 'AgeCategory_65-69', 'AgeCategory_60-64']
+
+Utilizaremos estas ultimas.
+
+
+&nbsp;1.7- Uso de PCA: despues de implementar PCA, la **cantidad de features se redujo a 5**.
+
 &nbsp;1.8- *En caso de no usar PCA: Normalizacion*
 
 2- **Entrenamiento**
