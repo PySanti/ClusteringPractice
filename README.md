@@ -40,11 +40,13 @@ Utilizaremos estas ultimas.
 
 &nbsp;2.1-Division del conjunto de datos en entrenamiento y test.
 
-&nbsp;2.2-Uso de estrategias de seleccion de modelo: despues de haber utilizado RandomizedSearch para seleccion de modelo, concluimos que los siguientes parametros son los mas optimos para este dataset:
+&nbsp;2.2-Uso de estrategias de seleccion de modelo: despues de haber utilizado RandomizedSearch para seleccion de modelo de KMEANS, concluimos que los siguientes parametros son los mas optimos para este dataset:
 
-{'algorithm': 'elkan', 'copy_x': True, 'init': 'k-means++', 'max_iter': 100, 'n_clusters': 6, 'n_init': 30, 'random_state': None, 'tol': 0.0001, 'verbose': 0}
+{'algorithm': 'elkan', 'copy_x': True, 'init': 'k-means++', 'max_iter': 100, 'n_clusters': 2, 'n_init': 30, 'random_state': None, 'tol': 0.0001, 'verbose': 0}
 
-&nbsp;2.3-Almacenar modelos en disco
+Ahora dejaremos al RandomizedSearch buscando la mejor combinacion de hiperparametros para DBSCAN para despues evaluar cual de los algoritmos de clustering funciona mejor para este dataset.
+
+&nbsp;2.3-Almacenar modelos en disco: en este proceso nos dimos cuenta que, al utilizar algoritmos de aprendizaje no supervisado como son los algoritmos de clustering, dumpear los modelos usando joblib no van a dumpear los clusters sino el algoritmo utilizado para ello. Por eso es que hay que utilzar el metodo **fit_predict**.
 
 3- **Evaluacion**
 
