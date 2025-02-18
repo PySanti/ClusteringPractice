@@ -38,8 +38,12 @@ Utilizaremos estas ultimas.
 
 2- **Entrenamiento**
 
-&nbsp;2.1-Division del conjunto de datos en entrenamiento y test\
-&nbsp;2.2-Uso de estrategias de seleccion de modelo
+&nbsp;2.1-Division del conjunto de datos en entrenamiento y test.
+
+&nbsp;2.2-Uso de estrategias de seleccion de modelo: despues de haber utilizado RandomizedSearch para seleccion de modelo, concluimos que los siguientes parametros son los mas optimos para este dataset:
+
+{'algorithm': 'elkan', 'copy_x': True, 'init': 'k-means++', 'max_iter': 100, 'n_clusters': 6, 'n_init': 30, 'random_state': None, 'tol': 0.0001, 'verbose': 0}
+
 &nbsp;2.3-Almacenar modelos en disco
 
 3- **Evaluacion**
