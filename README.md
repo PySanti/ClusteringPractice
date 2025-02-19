@@ -65,3 +65,7 @@ Resultados de clusters para DBSCAN
 
 silhouette : -0.6709401119693488
 calinski : 264.00824658655273
+V-measure : 0.01607311019499402
+
+
+Podemos concluir que KMEANS es el mejor algoritmo para este caso concreto. Ademas, vemos que a pesar de obtener un buen coeficiente de silhouette, obtenemos ademas un bajo V-measure. Esto se debe a que existe una fuerte relacion entre los datos de los clusters, pero esa relacion no se corresponde exactamente con las clases, o en otras palabras, existen dos subconjuntos de personas principales dentro del conjunto de datos estudiados que guardan una fuerte relacion entre ellos, sin embargo, esa relacion no se corresponde con que tuvieron un problemas del corazon o no. Interesante.

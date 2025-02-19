@@ -2,7 +2,7 @@ from utils.basic_preprocess import basic_preprocess
 from utils.load_data import load_data
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.metrics import silhouette_score
-from sklearn.metrics import calinski_harabasz_score
+from sklearn.metrics import calinski_harabasz_score, v_measure_score
 
 
 TARGET = "HeartDisease"
@@ -14,13 +14,8 @@ alg = KMeans(**best_kmeans_params)
 clusters = alg.fit_predict(X_data)
 
 print("Resultados de clusters para KMEANS")
-print(silhouette_score(X_data, clusters, sample_size=100_000))
-print(calinski_harabasz_score(X_data, clusters))
+print(f"Silhouette : {silhouette_score(X_data, clusters, sample_size=100_000)}")
+print(f"Calinski : {calinski_harabasz_score(X_data, clusters)}")
+print(f"V-measure : {v_measure_score(Y_data, clusters)}")
 
 
-alg = DBSCAN(eps=0.4, min_samples=8)
-clusters = alg.fit_predict(X_data)
-
-print("Resultados de clusters para DBSCAN")
-print(silhouette_score(X_data, clusters, sample_size=100_000))
-print(calinski_harabasz_score(X_data, clusters))
